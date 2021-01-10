@@ -4,7 +4,7 @@ export default function GridContainer() {
   const [rows, setRows] = useState("rows");
   return (
     <>
-      <Grid rows={rows} />
+      <Grid rows={rows} grid={grid} />
     </>
   );
 }

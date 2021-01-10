@@ -8,3 +8,9 @@ it("renders a grid to the screen", () => {
 
   expect(screen.getByText(/grid/i)).toBeInTheDocument();
 });
+
+it("renders a grid with length === height", () => {
+  render(<Grid length={50} />);
+
+  expect(screen.getByText(/grid/i)).toBeInTheDocument();
+});

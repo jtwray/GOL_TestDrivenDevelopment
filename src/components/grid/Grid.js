@@ -1,9 +1,10 @@
 import React from "react";
-
+import Cell from "./Cell";
 export default function Grid(props) {
   return (
     <>
-      GRID{props.rows}
+      <h2>GAME</h2>
+
       {props.grid.map((cell) => (
         <Cell value={cell.value} />
       ))}

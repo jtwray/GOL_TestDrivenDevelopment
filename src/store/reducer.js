@@ -48,7 +48,7 @@ export function gridReducer(state = initialState, action) {
 
     case "CLEAR_GRID":
       let clearGrid = [];
-      for (i = 0; i < state.gridSize; i++) {
+      for (let i = 0; i < state.gridSize; i++) {
         let clonedCell = { ...state.gridArray[i] };
         clearGrid.push({ ...clonedCell, value: 0 });
       }
@@ -59,7 +59,7 @@ export function gridReducer(state = initialState, action) {
 
     case "RANDOM_GRID":
       let randomGrid = [];
-      for (i = 0; i < state.gridSize; i++) {
+      for (let i = 0; i < state.gridSize; i++) {
         let ranNum = () => Math.floor(Math.random() * 2);
         let clonedCell = { ...state.gridArray[i] };
         randomGrid.push({ ...clonedCell, value: ranNum });

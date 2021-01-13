@@ -69,15 +69,17 @@ export function gridReducer(state = initialState, action) {
       };
 
     case "RANDOM_GRID":
+      console.log("dispatch 'RANDOM_GRID'","state.gridArray",state.gridArray)
       let randomGrid = [];
       for (let i = 0; i < state.gridSize; i++) {
-        let ranNum = () => Math.floor(Math.random() * 2);
+        let ranNum = Math.floor(Math.random() * 2);
         let clonedCell = { ...state.gridArray[i] };
         randomGrid.push({ ...clonedCell, value: ranNum });
       }
+      console.log("dispatch 'RANDOM_GRID'",{randomGrid})
       return {
         ...state,
-        gridArray: randomGrid
+        gridArray: [...randomGrid],
       };
 
     case "INCREMENT_ONE":

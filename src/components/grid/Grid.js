@@ -16,7 +16,8 @@ export default function Grid({ state, dispatch, grid }) {
         {grid.map((cell, idx) => (
           <Cell
             key={`${cell.value}_${idx}`}
-            value={idx}
+            value={cell.value}
+            idx={idx}
             state={state}
             dispatch={dispatch}
             cellWidth={100 / state.rowLength}

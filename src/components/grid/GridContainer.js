@@ -1,5 +1,6 @@
 import React, { useState, useReducer, useEffect } from "react";
 import Grid from "./Grid";
+import Controls from "../controls/Controls"
 import { initialState, gridReducer } from "../../store/reducer";
 
 export default function GridContainer() {
@@ -12,6 +13,7 @@ export default function GridContainer() {
   return (
     <>
       <Grid rows={rows} grid={state.gridArray} state={state} dispatch={dispatch} />
+      <Controls state={state} dispatch={dispatch} />
     </>
   );
 }

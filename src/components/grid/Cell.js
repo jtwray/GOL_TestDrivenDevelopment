@@ -22,8 +22,8 @@ const ui = (
   </ErrorBoundary>
 );
 
-export default function Cell({ state, dispatch, value, cellWidth }) {
-  const [isAlive, toggleIsAlive] = React.useState(false);
+export default function Cell({ state, dispatch, value, cellWidth, idx }) {
+  const [isAlive, toggleIsAlive] = React.useState(value == 1 ? true : false);
   const cell = {
     width: `${cellWidth}%`,
     height: `${cellWidth}%`,
@@ -31,13 +31,15 @@ export default function Cell({ state, dispatch, value, cellWidth }) {
     background: "transparent",
     transition: "all .2s ease",
     transform: "translate3d(0,0,0)",
-    flex: `1 ${state.rowLength} ${cellWidth}%`
+    flex: `1 ${state.rowLength} ${cellWidth}%`,
+    color: "black"
   };
 
   const is_Alive = {
     background: "black",
     transition: "all .2s ease",
-    transform: "translate3d(0,0,0)"
+    transform: "translate3d(0,0,0)",
+    color: "white"
   };
   return (
     <>
@@ -46,7 +48,7 @@ export default function Cell({ state, dispatch, value, cellWidth }) {
         style={isAlive ? { ...cell, ...is_Alive } : { ...cell }}
         className={`cell ${isAlive ? "isAlive" : ""}`}
       >
-        {value}
+        {idx}
       </div>
     </>
   );

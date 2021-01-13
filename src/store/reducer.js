@@ -20,7 +20,10 @@ export const initialState = {
     liveNeighborsCount: 0
   },
   gridSpeed: 1,
+  gridBoxWidth: 400,
+  cellWidth: 40,
   rowLength: 10,
+  windowWidth: window.innerWidth,
   gridSize: 100,
   generation: 0,
   isRunning: false
@@ -43,7 +46,15 @@ export function gridReducer(state = initialState, action) {
       return {
         ...state,
         isRunning: false,
-        gridSize: state.rowLength ** 2
+        gridSize: state.rowLength ** 2,
+        cellWidth: state.gridBoxWidth / state.rowLength
+      };
+    case "SET_CELL_WIDTH":
+      return {
+        ...state,
+        isRunning: false,
+        gridSize: state.rowLength ** 2,
+        cellWidth: action.payload
       };
 
     case "CLEAR_GRID":

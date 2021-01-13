@@ -11,7 +11,7 @@ export default function GridContainer() {
   }, []);
   return (
     <>
-      <Grid rows={rows} grid={state.gridArray} />
+      <Grid rows={rows} grid={state.gridArray} state={state} dispatch={dispatch} />
     </>
   );
 }
